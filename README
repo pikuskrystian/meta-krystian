@@ -1,41 +1,20 @@
-This README file contains information on the contents of the meta-krystian layer.
+# meta-krystian - Custom Yocto Layer
 
-Please see the corresponding sections below for details.
+This [Yocto](https://www.yoctoproject.org/) layer adds a GPIO blinking application (`gpio-blink`). It is a simple example of using a custom C application inside a Yocto build.
 
-Dependencies
-============
+## How to Use:
+1. Clone this repository into your Yocto `sources` directory:
 
-  URI: <first dependency>
-  branch: <branch name>
+```git clone https://github.com/pikuskrystian/meta-krystian.git ~/poky/meta-krystian```
 
-  URI: <second dependency>
-  branch: <branch name>
+2. Add it to `bblayers.conf`:
 
-  .
-  .
-  .
+```bitbake-layers add-layer meta-krystian```
 
-Patches
-=======
+3. Build the package:
 
-Please submit any patches against the meta-krystian layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
+```bitbake gpio-blink```
 
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
+4. (Optional) Add to the image:
 
-Table of Contents
-=================
-
-  I. Adding the meta-krystian layer to your build
- II. Misc
-
-
-I. Adding the meta-krystian layer to your build
-=================================================
-
-Run 'bitbake-layers add-layer meta-krystian'
-
-II. Misc
-========
-
---- replace with specific information about the meta-krystian layer ---
+```echo 'IMAGE_INSTALL:append = " gpio-blink"' >> ~/poky/build/conf/local.conf bitbake core-image-minimal```
